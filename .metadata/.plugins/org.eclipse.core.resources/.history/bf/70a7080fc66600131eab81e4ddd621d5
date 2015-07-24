@@ -1,0 +1,92 @@
+import java.util.*;
+import java.text.*;
+
+public class Person {
+	private int age;
+	private String name;
+	private int education;
+	
+	public Person(){		
+		
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.println("What is your age?");
+			age = scanner.nextInt();
+			scanner.nextLine();
+			
+		System.out.println("What is your name?");
+			name = scanner.nextLine();
+			do{
+		System.out.println("What is the highlest level of education you have received?");
+			education = scanner.nextInt();
+		
+		switch(education){
+		case 0: System.out.println("Bachelor's degree achieved from a university"); break;
+		case 1: System.out.println("Higher School Certificate"); break;
+		case 2: System.out.println("School Certificate Achieved"); break;
+		case 3: System.out.println("External Tertiary certificate achieved"
+									+ " from TAFE or another college"); break;
+		default: System.out.println("Invalid education entered. Please re-enter");
+		}
+		while(education > 3){
+			}
+	}
+	
+	/**
+	 * These are the mutator and accessor methods
+	 * 
+	 */
+
+	
+	public void changeName(String x){
+		name = x;
+	}
+	
+	public String getName(){
+		return name;
+	}
+	
+	public void changeAge(int x){
+		age = x;
+	}
+	
+	public int getAge(){
+		return age;
+	}
+	public void changeEducation(int x){
+		education = x;
+	}
+	
+	public String getEducationInfo(int x){
+			if (x == 0){
+				return "Bachelor's Degree";
+			}			
+			
+			if (x == 1){
+				return "Higher School Certificate";
+			}
+			
+			if (x == 2){
+				return "School Certificate (Year 10)";
+			}
+			
+			if (x == 3){
+				return "Other Tertiary Certificate";
+			}
+			
+			else
+				return "Invalid option selected";
+		
+		
+	}
+	
+	/**
+	 * Calculation mutator methods
+	 */
+	
+	public String getInformation(){
+		return "Your name is " + name + " and you are of " + age + " years old."
+							+ " Your highest achieved education is a " + getEducationInfo(education) + ".";
+	}
+	
+}

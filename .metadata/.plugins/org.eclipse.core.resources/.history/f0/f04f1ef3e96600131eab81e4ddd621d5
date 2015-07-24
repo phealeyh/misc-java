@@ -1,0 +1,23 @@
+import java.util.*;
+
+public class Calculator {
+	
+	public static void main (String[] args){
+		
+		Person person;
+		Occupation occupation;
+		
+		person = new Person();
+		occupation = new Occupation();
+		
+		occupation.calculateMonthly();
+		occupation.calculateWeekly();
+		occupation.calculateHourly();
+		
+		System.out.println(person.getInformation() + "\n"
+										+ occupation.getInformation());
+		
+		
+				
+	}
+}

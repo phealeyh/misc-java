@@ -1,0 +1,53 @@
+import java.util.*;
+import java.text.*;
+
+public class Occupation {
+	
+	private double salary;
+	private String occupation;
+	private double hoursWorkedWeekly;
+	
+	private double moneyMonthly;
+	private double moneyWeekly;
+	private double moneyHourly;
+	
+	private static final double weeksInAMonth = 4.34812	;
+	DecimalFormat dx = new DecimalFormat("0.0");
+
+	public Occupation(){
+		
+		Scanner scanner = new Scanner(System.in);
+		
+		System.out.println("Enter the type of occupation you're currently working in: ");
+		occupation = scanner.nextLine();
+		
+		System.out.println("Enter the salary that you earn per year: ");
+		salary = scanner.nextInt();
+		
+		
+		System.out.println("Enter the amount of hours you work per week: ");
+		hoursWorkedWeekly = scanner.nextInt();
+		
+		
+	}
+		
+	public void calculateMonthly(){
+		moneyMonthly = salary / (hoursWorkedWeekly * 12);
+	}
+	
+	public void calculateWeekly(){
+		moneyWeekly = salary / (hoursWorkedWeekly * weeksInAMonth);
+	}
+	
+	public void calculatePerHour(){
+		moneyHourly = salary / (hoursWorkedWeekly * 24);
+	}
+
+	public String getInformation(){
+		return "You currently earn " + "$" + salary +" per year " + "with earnings of "
+						+ "$" +dx.format(moneyMonthly) +" per month, " + "$"
+								+ dx.format(moneyWeekly) + " per week and " + "$"
+									+ dx.format(moneyHourly) +" on an hourly basis.";
+	}
+	
+}
